@@ -1,14 +1,18 @@
-var my = (function() {
-  var publicMethods = {};
-
-  function init() {
-    intIndicators();
+class My {
+  constructor() {
+    this.intIndicators();
   }
-  function intIndicators() {
-    console.log("Indicators loaded:");
-    console.log($(".indicator").length);
+  intIndicators() {
+    $(".indicator").map((index, $indicator) => {
+      new Indicator($indicator);
+    });
   }
+}
 
-  $(init);
-  return publicMethods;
-})();
+class Indicator {
+  constructor($indicator) {
+    console.log($indicator);
+  }
+}
+
+new My();
