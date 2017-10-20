@@ -1,0 +1,102 @@
+body {
+  width: 100%;
+  background-color: white;
+  margin: 0;
+}
+
+.percent {
+  display: flex;
+  justify-content: space-between;
+  margin: 10rem auto;
+  width: 80%;
+}
+
+.indicator {
+  position: relative;
+  width: 25%;
+  border: solid 2px lightgrey;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.info {
+  position: absolute;
+  top: -2.9rem;
+  right: -1.3rem;
+  text-align: center;
+  padding: 0.3rem 1rem;
+  color: white;
+}
+
+.info::after {
+  position: absolute;
+  top: 21px;
+  left: 20px;
+  content: "";
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  background: black;
+}
+
+.line {
+  position: absolute;
+  border: solid 4px;
+  top: -0.3rem;
+  left: -0.1rem;
+  border-radius: 0.3rem;
+}
+
+.line::before {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.3rem;
+  content: "";
+  background: black;
+  border: 7px solid transparent;
+  border-radius: 5rem;
+}
+
+.text {
+  position: absolute;
+  top: 2rem;
+  left: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.07rem;
+}
+
+.red .text {
+  color: #f18b6d;
+}
+
+.yellow .text {
+  color: #f1d204;
+}
+
+.violet .text {
+  color: #6a4d8a;
+}
+
+.red .line,
+.red .info,
+.red .line::before,
+.red .info::after {
+  background: #f18b6d;
+  border-color: #f18b6d;
+}
+
+.yellow .line,
+.yellow .info,
+.yellow .line::before,
+.yellow .info::after {
+  background: #f1d204;
+  border-color: #f1d204;
+}
+
+.violet .line,
+.violet .info,
+.violet .line::before,
+.violet .info::after {
+  background: #6a4d8a;
+  border-color: #6a4d8a;
+}
