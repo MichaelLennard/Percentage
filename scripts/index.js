@@ -3,39 +3,28 @@ class My {
     this.intIndicators();
   }
   intIndicators() {
-    $(".indicator").map((index, $indicator) => {
-      new Indicator($indicator);
-
-      
+    $(".indicator").map((index, indicator) => {
+      new Indicator(indicator);
     });
   }
 }
 
 class Indicator {
-  constructor($indicator) {
-    console.log($indicator);
-  //   const display = $('.line');
-  //   let currentValue = parseInt(display.text());
-    const zero = 0;
-  //   const diff =  zero - currentValue;
-  //   var step = ( 0 < diff ? 1 : -1 ); 
+  constructor(indicator) {
+    this.$indicator = $(indicator);
+    this.$line = this.$indicator.find(".line");
+    this.value = parseInt(this.$indicator.find(".info").text(), 10);
 
-  //   for (var i = 0; i < Math.abs(diff); ++i) {
-  //     setTimeout(function() {
-  //         currentValue += step
-  //         display.text(currentValue);
-  //     }, 100 * i)   
-  // } 
+    this._initEvents();
+    this._animate();
+  }
 
-  $(".text").click(function(){
-    let currentInfo = parseInt($('.info').text());
-    console.log(currentInfo);   
-    })
+  _initEvents() {
+    this.$indicator.find(".text").on("click", this._animate.bind(this));
+  }
 
-
-
-
-
+  _animate() {
+    this.$line.css("width", 0).animate({ width: `${this.value}%` }, 500);
   }
 }
 
